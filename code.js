@@ -1,11 +1,24 @@
+"use strict";
+
+const play = document.querySelector(".btn");
+let rock = document.querySelector(".rock");
+let paper = document.querySelector(".paper");
+let scissors = document.querySelector(".scissors");
+
+console.log(rock.textContent);
+let playerScore = 0;
+let ComputerScore = 0;
+
+play.addEventListener("click");
+
 function game() {
   for (let i = 0; i < 5; i++) {
     function playRound(playerSelection, computerSelection) {
-      const selections = ["rock", "paper", "scissors"];
-      playerSelection = prompt(
-        "What will you choose Rock, Paper, Scissors"
-      ).toLocaleLowerCase();
-      console.log(playerSelection);
+      const selections = [rock, paper, scissors];
+      // playerSelection = prompt(
+      //   "What will you choose Rock, Paper, Scissors"
+      // ).toLocaleLowerCase();cd ..
+      // console.log(playerSelection);
 
       computerSelection =
         selections[Math.floor(Math.random() * selections.length)];
@@ -28,5 +41,3 @@ function game() {
     playRound();
   }
 }
-
-game();

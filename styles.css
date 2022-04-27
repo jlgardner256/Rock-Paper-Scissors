@@ -1,0 +1,66 @@
+body {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-family: "Gideon Roman", cursive;
+  background-image: url(/Rock-Paper-Scissors/images/pexels-pixabay-355770.jpg);
+  background-size: cover;
+  background-color: #def2f1;
+}
+
+.game-container {
+  margin: 100px;
+  background-color: green;
+  border-radius: 20px;
+}
+
+#Section1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.word-container {
+  align-items: center;
+  text-align: center;
+}
+.words {
+  margin-left: 60px;
+}
+
+.btn-play {
+  margin-left: 110px;
+  margin-top: 50px;
+  font-size: 35px;
+}
+/* section2 css */
+.section2 {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.card {
+  height: 300px;
+}
+
+/* section3 css */
+#section3 {
+  display: flex;
+  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
+  padding: 100px;
+  margin-right: 300px;
+  margin-bottom: 100px;
+  /* margin-right: 450px;
+  padding-left: 300px;
+  padding-right: 300px; */
+}
+
+.footer {
+  align-items: center;
+}
