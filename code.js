@@ -1,43 +1,66 @@
-"use strict";
-
 const play = document.querySelector(".btn");
 let rock = document.querySelector(".rock");
 let paper = document.querySelector(".paper");
 let scissors = document.querySelector(".scissors");
-
-console.log(rock.textContent);
 let playerScore = 0;
-let ComputerScore = 0;
+let computerScore = 0;
 
-play.addEventListener("click");
+function compChoice() {
+  const selections = ["rock", "paper", "scissors"];
+  let computerSelection =
+    selections[Math.floor(Math.random() * selections.length)];
+  return computerSelection;
+}
 
-function game() {
-  for (let i = 0; i < 5; i++) {
-    function playRound(playerSelection, computerSelection) {
-      const selections = [rock, paper, scissors];
-      // playerSelection = prompt(
-      //   "What will you choose Rock, Paper, Scissors"
-      // ).toLocaleLowerCase();cd ..
-      // console.log(playerSelection);
+function playerChoice() {
+  rock.addEventListener("click", function () {
+    game("rock");
+  });
+  paper.addEventListener("click", function () {
+    game("paper");
+  });
+  scissors.addEventListener("click", function () {
+    game("scissors");
+  });
+}
+playerChoice();
 
-      computerSelection =
-        selections[Math.floor(Math.random() * selections.length)];
-      console.log(computerSelection);
-      if (playerSelection === computerSelection) {
-        console.log("TIE");
-        // player win conditons. by default if the player doesnt win or tie. the computer wins
-      } else if (
-        (playerSelection === "scissors" && computerSelection === "paper") ||
-        (playerSelection === "rock" && computerSelection === "scissors") ||
-        (playerSelection === "paper" && computerSelection === "rock")
-      ) {
-        console.log("Player wins");
-        i++;
-      } else {
-        console.log("computer wins");
-        i++;
-      }
-    }
-    playRound();
+function game(playerChoice) {
+  const computerSelection = compChoice();
+  switch (true) {
+    case playerChoice === computerSelection:
+      console.log("TIE");
+      break;
+    case playerChoice === "scissors" && computerSelection === "paper":
+    case playerChoice === "rock" && computerSelection === "scissors":
+    case playerChoice === "paper" && computerSelection === "rock":
+      console.log("Player wins");
+      playerScore++;
+      console.log(playerScore);
+      win();
+      break;
+    case playerChoice === "paper" && computerSelection === "scissors":
+    case playerChoice === "scissors" && computerSelection === "rock":
+    case playerChoice === "rock" && computerSelection === "paper":
+      console.log("Computer wins");
+      computerScore++;
+      console.log(computerScore);
+      lose();
+      break;
+  }
+
+  console.log("user choice =>" + playerChoice);
+  console.log("computer choice = " + computerSelection);
+}
+
+function win() {
+  if (playerScore === 5) {
+    alert("You win");
+  }
+}
+
+function lose() {
+  if (computerScore === 5) {
+    alert("you lose");
   }
 }
