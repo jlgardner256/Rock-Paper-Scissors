@@ -1,7 +1,11 @@
-const play = document.querySelector(".btn");
-let rock = document.querySelector(".rock");
-let paper = document.querySelector(".paper");
-let scissors = document.querySelector(".scissors");
+"use strict";
+
+const rock = document.querySelector(".rock");
+const paper = document.querySelector(".paper");
+const scissors = document.querySelector(".scissors");
+
+let pScore = document.querySelector(".score-container1");
+let cScore = document.querySelector(".score-container2");
 let playerScore = 0;
 let computerScore = 0;
 
@@ -34,18 +38,18 @@ function game(playerChoice) {
     case playerChoice === "scissors" && computerSelection === "paper":
     case playerChoice === "rock" && computerSelection === "scissors":
     case playerChoice === "paper" && computerSelection === "rock":
-      console.log("Player wins");
       playerScore++;
+      console.log("Player wins");
       console.log(playerScore);
       win();
       break;
     case playerChoice === "paper" && computerSelection === "scissors":
     case playerChoice === "scissors" && computerSelection === "rock":
     case playerChoice === "rock" && computerSelection === "paper":
-      console.log("Computer wins");
       computerScore++;
+      console.log("Computer wins");
       console.log(computerScore);
-      lose();
+      win();
       break;
   }
 
@@ -55,8 +59,14 @@ function game(playerChoice) {
 
 function win() {
   if (playerScore === 5) {
-    alert("You win");
+    alert("you win");
+    playerScore = 0;
+  } else if (computerScore === 5) {
+    computerScore = 0;
+    alert("computer wins");
   }
+  pScore.innerHTML = playerScore;
+  cScore.innerHTML = computerScore;
 }
 
 function lose() {
